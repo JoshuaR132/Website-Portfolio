@@ -4,63 +4,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joshua Roberts | Portfolio</title>
+
+  <!-- SEO and Metadata -->
+  <meta name="description" content="Portfolio of Joshua Roberts — Computer Science student passionate about software and embedded systems.">
+  <meta name="keywords" content="Joshua Roberts, software developer, embedded systems, portfolio, ETAS, C++, Java, Python">
+  <meta name="author" content="Joshua Roberts">
+  <meta property="og:title" content="Joshua Roberts | Software Developer Portfolio">
+  <meta property="og:description" content="A showcase of my software projects, skills, and development experience.">
+  <meta property="og:image" content="images/preview.png">
+
+  <!-- Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/YOUR-FONT-AWESOME-CODE.js" crossorigin="anonymous"></script>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<header>
-  <nav class="navbar">
-    <h1>Joshua Roberts</h1>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
 
 <body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <h1>Joshua Roberts</h1>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="section hero">
+      <div class="hero-content">
+        <div>
+          <h2>Hi, I’m Joshua </h2>
+          <p>I’m a Computer Science student with a strong interest in software engineering and embedded systems. I love turning complex problems into elegant solutions through code.</p>
+          <a href="#projects" class="btn">View My Projects</a>
+          <a href="files/JoshuaRobertsResume.pdf" download class="btn secondary">Download Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
     <section id="about" class="section">
-  <h2>About Me</h2>
-  <p>Hi, I’m Joshua Roberts — a Computer Science student passionate about software development and embedded systems. I enjoy building creative solutions and learning new technologies.</p>
-</section>
+      <h2>About Me</h2>
+      <p>
+        I’m passionate about creating reliable and efficient software that bridges hardware and user experience. My focus is on developing systems-level applications and learning how software integrates with embedded hardware platforms.
+      </p>
+    </section>
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="project">
-    <h3>Smart Sensor Monitoring System</h3>
-    <p>Python and C++ project using Raspberry Pi to collect and display environmental data.</p>
-    <a href="https://github.com/yourusername/sensor-project" target="_blank">View on GitHub</a>
-  </div>
-  <div class="project">
-    <h3>Personal Notes App</h3>
-    <p>Java-based project built using full stack programming that allows the user to log in and save their notes saved on mongoDB</p>
-    <a href="https://github.com/JoshuaR132/Personal-Notes-App" target="_blank">View on GitHub</a>
-  </div>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="project-grid">
 
-  <section id="skills" class="section">
-  <h2>Skills</h2>
-  <ul>
-    <li>C++</li>
-    <li>Java</li>
-    <li>HTML, CSS, JavaScript</li>
-    <li>Git & GitHub</li>
-  </ul>
-</section>
+        <div class="project-card">
+          <h3>Smart Sensor Monitoring System</h3>
+          <p>Python and C++ project using Raspberry Pi to collect and display environmental data. Implemented real-time visualization and sensor data logging features.</p>
+          <a href="https://github.com/yourusername/sensor-project" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
 
-<section id="contact" class="section">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:jrroberts141@gmail.com">jrroberts141@gmail.com</a></p>
-  <p>GitHub: <a href="https://github.com/JoshuaR132" target="_blank">github.com/JoshuaR132</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></p>
-</section>
+        <div class="project-card">
+          <h3>Personal Notes App</h3>
+          <p>Java full-stack project allowing users to register, log in, and manage personal notes stored securely in MongoDB.</p>
+          <a href="https://github.com/JoshuaR132/Personal-Notes-App" target="_blank">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
 
+      </div>
+    </section>
 
-</section>
-<footer>
-  <p>© 2025 Joshua Roberts | Built with HTML, CSS, and JavaScript</p>
-</footer>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Git & GitHub</li>
+      </ul>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Feel free to reach out if you’d like to collaborate or just have a chat about software and embedded systems.</p>
+      <ul class="contact-list">
+        <li><i class="fa-solid fa-envelope"></i> <a href="mailto:jrroberts141@gmail.com">jrroberts141@gmail.com</a></li>
+        <li><i class="fa-brands fa-github"></i> <a href="https://github.com/JoshuaR132" target="_blank">github.com/JoshuaR132</a></li>
+        <li><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/yourusername" target="_blank">linkedin.com/in/yourusername</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Joshua Roberts | Built with HTML, CSS, and JavaScript</p>
+  </footer>
+
+  <!-- Script -->
   <script src="script.js"></script>
-</section>
 </body>
 </html>
