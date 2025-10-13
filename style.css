@@ -5,14 +5,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
-  scroll-behavior: smooth;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ===============================
@@ -20,25 +24,29 @@ body {
 ================================= */
 .navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 2rem; /* spacing between name and links */
   background: #0a74da;
   padding: 1rem 2rem;
   color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background 0.3s ease;
 }
 
 .navbar h1 {
   font-size: 1.4rem;
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.5rem; /* spacing between links */
+  margin: 0;
+  padding: 0;
 }
 
 .navbar a {
@@ -46,10 +54,6 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-  color: #cce7ff;
 }
 
 /* ===============================
@@ -60,6 +64,7 @@ body {
   color: white;
   padding: 5rem 2rem;
   text-align: center;
+  transition: background 0.4s ease;
 }
 
 .hero-content {
@@ -77,18 +82,24 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
 }
 
 .hero h2 {
   font-size: 2rem;
-  color:rgba(255, 255, 255)
 }
 
 .hero p {
   max-width: 700px;
   font-size: 1.1rem;
   line-height: 1.8;
+  color: white; 
+  text-align: center;
 }
 
 .btn {
@@ -126,6 +137,7 @@ body {
   padding: 4rem 2rem;
   max-width: 1000px;
   margin: auto;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 .section h2 {
@@ -133,6 +145,18 @@ body {
   margin-bottom: 1rem;
   text-align: center;
   font-size: 1.8rem;
+  position: relative;
+}
+
+/* Decorative underline */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #0a74da;
+  margin: 0.5rem auto;
+  border-radius: 2px;
 }
 
 /* ===============================
@@ -160,7 +184,7 @@ body {
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .project-card:hover {
@@ -205,6 +229,12 @@ body {
   padding: 0.6rem 1rem;
   border-radius: 8px;
   font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.skills-list li:hover {
+  background: #cce7ff;
+  transform: scale(1.05);
 }
 
 /* ===============================
@@ -212,8 +242,19 @@ body {
 ================================= */
 .contact-list {
   list-style: none;
-  text-align: center;
+  display: flex;           
+  flex-direction: column;    
+  align-items: center;     
+  justify-content: center;   
   margin-top: 1.5rem;
+  padding: 0;                
+}
+
+#contact p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .contact-list li {
@@ -224,11 +265,13 @@ body {
   color: #0a74da;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .contact-list a:hover {
-  text-decoration: underline;
+  color: #004b99;
 }
+
 
 /* ===============================
    FOOTER
@@ -236,26 +279,107 @@ body {
 footer {
   background: #0a74da;
   color: white;
-  text-align: center;
   padding: 1.2rem;
   font-size: 0.9rem;
   margin-top: 2rem;
+  transition: background 0.4s ease;
+
+  display: flex;            
+  justify-content: center;  
+  align-items: center;     
+  text-align: center;       
+  width: 100%;              
+}
+
+footer p {
+  margin: 0;
 }
 
 /* ===============================
-   RESPONSIVE DESIGN
+   DARK MODE
 ================================= */
+body.dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .navbar {
+  background: #1e1e1e;
+}
+
+body.dark .hero {
+  background: linear-gradient(to right, #1e1e1e, #2b2b2b);
+}
+
+body.dark .project-card {
+  background: #1a1a1a;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark footer {
+  background: #1e1e1e;
+}
+
+body.dark .skills-list li {
+  background: #2a2a2a;
+  color: #87bfff;
+}
+
+body.dark .section h2 {
+  color: #87bfff;
+}
+
+body.dark .section h2::after {
+  background: #87bfff;
+}
+
+/* ===============================
+   ANIMATIONS ON SCROLL
+================================= */
+.section.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   MOBILE MENU TOGGLE
+================================= */
+.menu-btn {
+  display: none;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
 @media (max-width: 768px) {
-  .navbar ul {
-    flex-direction: column;
-    gap: 0.8rem;
-    background: #0a74da;
-    padding: 1rem 0;
+  .menu-btn {
+    display: block;
   }
 
-  .hero-content {
+  .navbar ul {
+    display: none;
     flex-direction: column;
-    text-align: center;
+    background: #0a74da;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .navbar ul.active {
+    display: flex;
   }
 
   .hero h2 {
@@ -265,4 +389,23 @@ footer {
   .section {
     padding: 3rem 1rem;
   }
+}
+
+/* ===============================
+   THEME TOGGLE
+================================= */
+.theme-toggle {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
