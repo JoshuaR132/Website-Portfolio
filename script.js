@@ -1,6 +1,3 @@
-// ===============================
-// SMOOTH SCROLLING FOR NAV LINKS
-// ===============================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const targetId = this.getAttribute('href');
@@ -16,9 +13,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ===============================
-// DYNAMIC GREETING IN ABOUT SECTION
-// ===============================
 const hours = new Date().getHours();
 let greeting;
 
@@ -37,9 +31,6 @@ if (aboutSection) {
   aboutSection.insertBefore(greetEl, aboutSection.children[1]);
 }
 
-// ===============================
-// FADE-IN ON SCROLL (Intersection Observer)
-// ===============================
 const sections = document.querySelectorAll(".section");
 
 const observer = new IntersectionObserver(
@@ -59,9 +50,6 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
-// ===============================
-// MOBILE NAVBAR TOGGLE
-// ===============================
 const navbar = document.querySelector(".navbar");
 const navList = navbar.querySelector("ul");
 
@@ -74,29 +62,23 @@ menuBtn.addEventListener("click", () => {
   navList.classList.toggle("active");
 });
 
-// Hide menu when a link is clicked (for better UX)
 navList.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     navList.classList.remove("active");
   });
 });
 
-// ===============================
-// DARK MODE TOGGLE (with memory)
-// ===============================
 const themeToggle = document.createElement("button");
 themeToggle.classList.add("theme-toggle");
 themeToggle.textContent = "🌙";
 navbar.appendChild(themeToggle);
 
-// Load saved theme
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   document.body.classList.add("dark");
   themeToggle.textContent = "☀️";
 }
 
-// Toggle theme
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
 
@@ -105,9 +87,6 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
-// ===============================
-// RESPONSIVE BUTTON VISIBILITY
-// ===============================
 function handleResize() {
   if (window.innerWidth > 768) {
     menuBtn.style.display = "none";
@@ -117,5 +96,41 @@ function handleResize() {
   }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const images = document.querySelectorAll('.project-image img');
+
+  const lightbox = document.createElement('div');
+  lightbox.id = 'lightbox';
+  document.body.appendChild(lightbox);
+
+  images.forEach(img => {
+    img.addEventListener('click', e => {
+      e.stopPropagation();
+      lightbox.classList.add('active');
+
+      const fullImg = document.createElement('img');
+      fullImg.src = img.src;  
+      fullImg.alt = img.alt || "Project Screenshot";
+      fullImg.className = "lightbox-image";
+
+      while (lightbox.firstChild) lightbox.removeChild(lightbox.firstChild);
+      lightbox.appendChild(fullImg);
+    });
+  });
+
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+    }
+  });
+});
+
+
 window.addEventListener("resize", handleResize);
-handleResize(); // Run on page load
+handleResize(); 
